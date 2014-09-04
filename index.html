@@ -1,35 +1,139 @@
 <!DOCTYPE html>
 <html ng-app>
 	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>AngularJS Hello World App</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<!-- Custom styles for this template -->
+    <link href="app.css" rel="stylesheet">
 
 	</head>
 	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">AngularJS School Project</a>
+        </div>
+        <div class="collapse navbar-collapse pull-right">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+<div class="container">
+			<div class="starter-template">
+				<h1>Angularjs Hello World App</h1>
+        		<p class="lead">Welcome to the AngularJS API exercises page.<br>Use this SPA as a way to quickly start any new project.</p>
+			</div>
+			<div class="row wrapp1">
+				<div class="col-md-6 col-md-offset-3">
+					<div ng-hide="isHidden" ng-init="name='JohnD' ">
+							<h1>Exercise 1</h1>
+						<p>Show the basics.</p>
+						Name: <input type="text" ng-model="name" >
+						{{ name }}
+					</div>	
+					
+					<!-- more about directives -->
+					<h2>Directives</h2>
+					<div>
+						Hide <input type="checkbox" ng-model="isHidden" >
+					</div>
+					<button ng-click="name='Dani B' ">Change name</button>
+
+					<!-- iterating with ng-repeat -->
+					<h2>Iterating with ng-repeat</h2>
+					<div ng-init="players=[{name:'Di Maria', team:'ManU'},{name:'Gago', team:'Boca'}, {name:'Chavez', team:'Boca'}, {name:'Messi', team:'Barsa'}]" >
+						<ul>
+							<li ng-repeat="player in players">
+								{{player.name}} {{player.team}}</li>
+						</ul>
+					</div>
+
+					<table>
+						<thead>
+							<th>Name</th>
+							<th>Team</th>
+						</thead>
+						<tr ng-repeat="player in players">
+							<td>{{player.name}}</td>
+							<TD>{{player.team}}</TD>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+				
+
+		<div class="row wrapp2">
+			<div class="col-md-6 col-md-offset-3">
+				<!-- Dynamic sortin anf filtering data in cols-->
+				<div>
+					<h1>Exercise 2</h1>
+					<p>Dynamic sorting and filtering data in cols.</p>
+					<div ng-init="customers=[
+					{joined:'2014-01-01',name:'Di Maria',city:'San Jose',orderTotal:99.93245},
+					{joined:'2014-01-03',name:'Rojo',city:'Walnut Creek',orderTotal:120.202},
+					{joined:'2014-01-04',name:'Kun',city:'San Francisco',orderTotal:590.45}]">
+					<h2>Customers</h2>
+					Filter:<input type="text" ng-model="customerFilter.name">
+					<br><br>
+					<table>
+						<tr>
+							<th ng-click="sortBy='name';reverse=!reverse">Name</th>
+							<th ng-click="sortBy='city';reverse=!reverse">City</th>
+							<th ng-click="sortBy='order Total';reverse=!reverse">Order Total</th>
+							<th ng-click="sortBy='joined';reverse=!reverse">Joined</th>
+						</tr>
+						<tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse" >
+							<td>{{cust.name | uppercase}}</td>
+							<td>{{cust.city | lowercase}}</td>
+							<td>{{cust.orderTotal | currency}}</td>
+							<td>{{cust.joined | date}}</td>
+						</tr>
+
+					</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
 		
-		<div ng-hide="isHidden" ng-init="name='JohnD' ">
-			<h1>Angularjs Hello World App</h1>
-		<p>Show basics.</p>
-		Name: <input type="text" ng-model="name" >
-		{{ name }}
-		</div>		
+			
 
-		<!-- more about directives -->
-		<h2>Directives</h2>
-		<div>
-			Hide <input type="checkbox" ng-model="isHidden" >
-		</div>
-		<button ng-click="name='Preslys' ">Change name</button>
+	</div>
+		<!-- end of container -->
 
-		<!-- iterating with ng-repeat -->
-		<h2>Iterating with ng-repeat</h2>
-		<div ng-init="players=['Di Maria', 'Roman', 'Gago']" >
-			<ul>
-				<li ng-repeat="player in players">{{player}}</li>
-			</ul>
-		</div>
+		
+
+
+
+
+
 
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js" ></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 	</body>
 </html>

@@ -1,0 +1,21 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.starter-template{
+	background-color: #dedede;
+}
+.wrapp1{
+	background-color: #ffcc99;
+	padding: 40px 15px;
+	margin: 0px;
+}
+.wrapp2{
+	background-color: #ccff99;
+	padding: 40px 15px;
+	margin: 0px;
+}
